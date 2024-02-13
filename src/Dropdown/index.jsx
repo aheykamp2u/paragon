@@ -33,26 +33,31 @@ const Dropdown = React.forwardRef(
       if (autoClose === 'outside') {
         return source !== 'select';
       }
+      console.log('autoClose: ', autoClose);
+      console.log('closing true');
       return true;
     };
 
     const handleToggle = (isOpen, event, metadata) => {
+      console.log('isOpen: ', isOpen);
       if (isOpen) {
         setInternalShow(true);
         onToggle?.(isOpen, event, metadata);
         return;
       }
       let { source } = { ...metadata };
-
+      console.log('source: ', source);
       if (event.currentTarget === document && (source !== 'keydown' || event.key === 'Escape')) {
         source = 'rootClose';
       }
+      console.log(source);
       if (isClosingPermitted(source)) {
+        console.log('closing now');
         setInternalShow(false);
         onToggle?.(isOpen, event, metadata);
       }
     };
-
+    console.log('internalShow: ', internalShow);
     return (
       <BaseDropdown
         className={classNames(

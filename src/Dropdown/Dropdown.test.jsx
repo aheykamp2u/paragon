@@ -43,6 +43,7 @@ describe('<Dropdown />', () => {
       </Dropdown>,
     );
 
+    screen.debug();
     expect(screen.queryByText('foobar')).not.toBeInTheDocument();
     expect(screen.getByText('Dropdown Button')).toBeInTheDocument();
 
@@ -57,8 +58,9 @@ describe('<Dropdown />', () => {
 
     // Close the dropdown by clicking off the element
     await act(async () => {
-      userEvent.click(document.body);
+      await userEvent.click(document.body);
     });
+    screen.debug();
     await waitFor(() => expect(screen.queryByText('foobar')).not.toBeVisible());
 
     // Reopen the dropdown
