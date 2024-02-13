@@ -55,5 +55,4 @@ export {
 };
 
 export { default as FormCheck } from 'react-bootstrap/FormCheck';
-export { default as FormFile } from 'react-bootstrap/FormFile';
 export { default as InputGroup } from 'react-bootstrap/InputGroup';

@@ -1,6 +1,7 @@
 const getParagonComponentsTypes = (components) => {
   const componentsWithTypes = {};
   Object.keys(components).forEach(componentName => {
+    console.log(componentName);
     const component = components[componentName];
     const isFunctionComponent = typeof component === 'function' && componentName[0] === componentName[0].toUpperCase();
     // Case for React.forwardRef() returns an object

@@ -9,9 +9,8 @@ export { default as Breadcrumb } from './Breadcrumb';
 export { default as Button, ButtonGroup, ButtonToolbar } from './Button';
 export {
   default as Card,
-  CardColumns,
-  CardDeck,
   CardImg,
+  CardDeck,
   CardGroup,
   CardGrid,
   CardCarousel,
@@ -48,7 +47,6 @@ export {
   FormControlDecoratorGroup,
   FormControlFeedback,
   FormCheck,
-  FormFile,
   FormRadio,
   FormRadioSet,
   FormRadioSetContext,
@@ -111,7 +109,7 @@ export { default as Popover, PopoverTitle, PopoverContent } from './Popover';
 export { default as ProgressBar } from './ProgressBar';
 export { default as ProductTour } from './ProductTour';
 export { default as RadioButtonGroup, RadioButton } from './RadioButtonGroup';
-export { default as ResponsiveEmbed } from './ResponsiveEmbed';
+export { default as ResponsiveEmbed } from './Ratio';
 export {
   default as SearchField,
   SEARCH_FIELD_SCREEN_READER_TEXT_LABEL,

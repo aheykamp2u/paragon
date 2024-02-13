@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import BasePopover from 'react-bootstrap/Popover';
-import BasePopoverTitle from 'react-bootstrap/PopoverTitle';
-import BasePopoverContent from 'react-bootstrap/PopoverContent';
+import BasePopoverTitle from 'react-bootstrap/PopoverHeader';
+import BasePopoverContent from 'react-bootstrap/PopoverBody';
 
 const PLACEMENT_VARIANTS = [
   'auto',

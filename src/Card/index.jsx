@@ -45,7 +45,6 @@ const Card = React.forwardRef(({
   );
 });
 
-export { default as CardColumns } from 'react-bootstrap/CardColumns';
 export { default as CardDeck } from './CardDeck';
 export { default as CardCarousel } from './CardCarousel/CardCarousel';
 export { default as CardImg } from 'react-bootstrap/CardImg';

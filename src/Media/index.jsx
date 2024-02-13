@@ -1,1 +1,1 @@
-export { default } from 'react-bootstrap/Media';
+export { default } from 'react-bootstrap/Card';
