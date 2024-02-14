@@ -100,7 +100,7 @@ describe('<Tabs />', () => {
         await userEvent.click(dropdownItem[0], undefined, { skipPointerEventsCheck: true });
       });
       screen.debug();
-      const tab = container.querySelector('[data-rb-event-key="tab_2"]');
+      const tab = container.querySelector('[data-rr-ui-event-key="tab_2"]');
       expect(tab.className).toContain('active');
     });
     it('select dropdown item after pressing Enter', async () => {

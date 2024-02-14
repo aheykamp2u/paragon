@@ -71,7 +71,7 @@ function Tabs({
   }, [overflowElementRef.current?.parentNode]);
 
   const handleDropdownTabClick = useCallback((eventKey) => {
-    const hiddenTab = containerElementRef.querySelector(`[data-rb-event-key='${eventKey}']`);
+    const hiddenTab = containerElementRef.querySelector(`[data-rr-ui-event-key='${eventKey}']`);
     hiddenTab.click();
   }, [containerElementRef]);
 

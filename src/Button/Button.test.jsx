@@ -74,7 +74,8 @@ describe('<Button />', () => {
       test('cannot click if disabled', async () => {
         const onClick = jest.fn();
         render(<Button as="a" href="https://edx.org" disabled onClick={onClick}>Button</Button>);
-        const link = screen.getByRole('link');
+        screen.debug();
+        const link = screen.getByRole('button');
         await userEvent.click(link);
         expect(onClick).not.toHaveBeenCalled();
       });
