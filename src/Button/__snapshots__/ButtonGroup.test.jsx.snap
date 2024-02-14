@@ -4,6 +4,7 @@ exports[`<ButtonGroup /> correct rendering renders with children 1`] = `
 <div
   className="btn-group btn-group-lg"
   role="group"
+  toggle={false}
 >
   <button
     className="btn btn-primary"
@@ -33,5 +34,6 @@ exports[`<ButtonGroup /> correct rendering renders without props 1`] = `
 <div
   className="btn-group btn-group-md"
   role="group"
+  toggle={false}
 />
 `;

@@ -1,5 +1,7 @@
 import React from 'react';
-import { render, waitFor, act } from '@testing-library/react';
+import {
+  render, screen, waitFor, act,
+} from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import userEvent from '@testing-library/user-event';
 
@@ -97,6 +99,7 @@ describe('<Tabs />', () => {
       await act(async () => {
         await userEvent.click(dropdownItem[0], undefined, { skipPointerEventsCheck: true });
       });
+      screen.debug();
       const tab = container.querySelector('[data-rb-event-key="tab_2"]');
       expect(tab.className).toContain('active');
     });

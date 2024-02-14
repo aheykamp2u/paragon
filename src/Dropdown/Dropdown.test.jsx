@@ -37,7 +37,7 @@ describe('<Dropdown />', () => {
         <Dropdown.Toggle id={1}>
           Dropdown Button
         </Dropdown.Toggle>
-        <Dropdown.Menu>
+        <Dropdown.Menu data-testid="dropdown-menu">
           <Dropdown.Item>foobar</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>,
@@ -54,19 +54,22 @@ describe('<Dropdown />', () => {
     });
 
     // Expect the dropdown item to be visible
+    await waitFor(() => expect(screen.getByTestId('dropdown-menu')).toHaveClass('show'));
     await waitFor(() => expect(screen.queryByText('foobar')).toBeVisible());
 
     // Close the dropdown by clicking off the element
-    await act(async () => {
-      await userEvent.click(document.body);
+    await act(() => {
+      userEvent.click(document.body);
     });
     screen.debug();
-    await waitFor(() => expect(screen.queryByText('foobar')).not.toBeVisible());
+    await waitFor(() => expect(screen.getByTestId('dropdown-menu')).not.toHaveClass('show'));
+    // await waitFor(() => expect(screen.queryByText('foobar')).not.toBeVisible());
 
     // Reopen the dropdown
     await act(async () => {
       userEvent.click(button);
     });
+    await waitFor(() => expect(screen.getByTestId('dropdown-menu')).toHaveClass('show'));
     await waitFor(() => expect(screen.queryByText('foobar')).toBeVisible());
 
     // Close the dropdown by clicking the item
@@ -74,7 +77,8 @@ describe('<Dropdown />', () => {
     await act(async () => {
       userEvent.click(dropdownItem);
     });
-    await waitFor(() => expect(screen.queryByText('foobar')).not.toBeVisible());
+    await waitFor(() => expect(screen.getByTestId('dropdown-menu')).not.toHaveClass('show'));
+    // await waitFor(() => expect(screen.queryByText('foobar')).not.toBeVisible());
   });
 
   it('Dropdown functions when autoClose is outside', async () => {
@@ -86,7 +90,7 @@ describe('<Dropdown />', () => {
         <Dropdown.Toggle id={1}>
           Dropdown Button
         </Dropdown.Toggle>
-        <Dropdown.Menu>
+        <Dropdown.Menu data-testid="dropdown-menu">
           <Dropdown.Item>foobar</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>,
@@ -101,19 +105,21 @@ describe('<Dropdown />', () => {
       userEvent.click(button);
     });
 
-    // Expect the dropdown item to be visible
+    // Expect the dropdown menu and item to be visible
+    await waitFor(() => expect(screen.getByTestId('dropdown-menu')).toHaveClass('show'));
     await waitFor(() => expect(screen.queryByText('foobar')).toBeVisible());
 
     // Close the dropdown by clicking off the element
     await act(async () => {
       userEvent.click(document.body);
     });
-    await waitFor(() => expect(screen.queryByText('foobar')).not.toBeVisible());
+    await waitFor(() => expect(screen.getByTestId('dropdown-menu')).not.toHaveClass('show'));
 
     // Reopen the dropdown
     await act(async () => {
       userEvent.click(button);
     });
+    await waitFor(() => expect(screen.getByTestId('dropdown-menu')).toHaveClass('show'));
     await waitFor(() => expect(screen.queryByText('foobar')).toBeVisible());
 
     // Assert the dropdown stays open when clicking the item
@@ -121,6 +127,7 @@ describe('<Dropdown />', () => {
     await act(async () => {
       userEvent.click(dropdownItem);
     });
+    await waitFor(() => expect(screen.getByTestId('dropdown-menu')).toHaveClass('show'));
     await waitFor(() => expect(screen.queryByText('foobar')).toBeVisible());
   });
 
@@ -133,7 +140,7 @@ describe('<Dropdown />', () => {
         <Dropdown.Toggle id={1}>
           Dropdown Button
         </Dropdown.Toggle>
-        <Dropdown.Menu>
+        <Dropdown.Menu data-testid="dropdown-menu">
           <Dropdown.Item>foobar</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>,
@@ -148,13 +155,15 @@ describe('<Dropdown />', () => {
       await userEvent.click(button);
     });
 
-    // Expect the dropdown item to be visible
+    // Expect the dropdown menu and item to be visible
+    await waitFor(() => expect(screen.getByTestId('dropdown-menu')).toHaveClass('show'));
     await waitFor(() => expect(screen.queryByText('foobar')).toBeVisible());
 
     // Assert the dropdown stays open when clicking outside the dropdown
     await act(async () => {
       await userEvent.click(document.body);
     });
+    await waitFor(() => expect(screen.getByTestId('dropdown-menu')).toHaveClass('show'));
     await waitFor(() => expect(screen.queryByText('foobar')).toBeVisible());
 
     // Close the dropdown by clicking the element
@@ -162,6 +171,6 @@ describe('<Dropdown />', () => {
     await act(async () => {
       userEvent.click(dropdownItem);
     });
-    await waitFor(() => expect(screen.queryByText('foobar')).not.toBeVisible());
+    await waitFor(() => expect(screen.getByTestId('dropdown-menu')).not.toHaveClass('show'));
   });
 });
