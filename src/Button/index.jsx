@@ -16,6 +16,7 @@ const Button = React.forwardRef(({
 }, ref) => {
   const { disabled } = props;
   console.log(disabled);
+  console.log(typeof disabled);
   console.log(props);
   return (
     <BaseButton
