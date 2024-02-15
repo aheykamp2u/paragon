@@ -13,17 +13,22 @@ const Button = React.forwardRef(({
   iconAfter,
   iconBefore,
   ...props
-}, ref) => (
-  <BaseButton
-    {...props}
-    className={classNames(props.className)}
-    ref={ref}
-  >
-    {iconBefore && <Icon className="btn-icon-before" size={props.size} src={iconBefore} />}
-    {children}
-    {iconAfter && <Icon className="btn-icon-after" size={props.size} src={iconAfter} />}
-  </BaseButton>
-));
+}, ref) => {
+  const { disabled } = props;
+  console.log(disabled);
+  console.log(props);
+  return (
+    <BaseButton
+      {...props}
+      className={classNames(props.className)}
+      ref={ref}
+    >
+      {iconBefore && <Icon className="btn-icon-before" size={props.size} src={iconBefore} />}
+      {children}
+      {iconAfter && <Icon className="btn-icon-after" size={props.size} src={iconAfter} />}
+    </BaseButton>
+  );
+});
 
 Button.propTypes = {
   ...Button.propTypes,

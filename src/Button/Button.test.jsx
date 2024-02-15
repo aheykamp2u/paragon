@@ -89,14 +89,14 @@ describe('<Button />', () => {
         onClick.mockClear();
 
         rerender(<Button as="a" href="" disabled onClick={onClick}>Button</Button>);
-        const emptyHrefLink = screen.getByRole('link', { name: 'Button' });
+        const emptyHrefLink = screen.getByRole('button', { name: 'Button' });
         await userEvent.click(emptyHrefLink);
         expect(onClick).toHaveBeenCalled();
       });
 
       test('test button as hyperlink', () => {
         render(<Button as={Hyperlink} destination="https://www.poop.com/💩">Button</Button>);
-        expect(screen.getByRole('link').getAttribute('href')).toEqual('https://www.poop.com/💩');
+        expect(screen.getByRole('button').getAttribute('href')).toEqual('https://www.poop.com/💩');
       });
     });
   });
