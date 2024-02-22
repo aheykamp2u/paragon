@@ -4,7 +4,6 @@ node_modules
 npm-debug.log
 coverage
 jest*
-dist
 src/i18n/transifex_input.json
 src/i18n/temp
 
